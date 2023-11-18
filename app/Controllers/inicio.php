@@ -1,40 +1,46 @@
 <?php
 
 namespace App\Controllers;
-
-use App\Libraries\StaticResource;
+use App\Libraries\Resource;
 
 class inicio extends BaseController
 {
     public function index(): string
     {
-        // $staticResource = new StaticResource();
+        $resource = new Resource();
 
         // dth -> data header
         // dtf -> data footer
 
         // Agregar Título a la Vista
-        $dth['pageTitle'] = 'Inicio';
+        $data['pageTitle'] = 'Inicio';
         
         // Agregar archivos CSS
-        $dth['css'] = array(
-            'plugins/fontawesome-free/css/all.min.css',
-            'dist/css/adminlte.min.css',
-            'plugins/overlayScrollbars/css/OverlayScrollbars.min.css',
+        $css = array(
+            'plugins/fontawesome-free/css/all.min',
+            'dist/css/adminlte.min',
+            'plugins/overlayScrollbars/css/OverlayScrollbars.min',
         );
         
         // Agregar archivos JS
-        $dtf['js'] = array(
-            'plugins/jquery/jquery.min.js',
-            'plugins/jquery-ui/jquery-ui.min.js',
-            'plugins/bootstrap/js/bootstrap.bundle.min.js',
-            'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
-            'dist/js/adminlte.js',
+        $js = array(
+            'plugins/fontawesome-free/js/all.min',
+            'plugins/jquery/jquery.min',
+            'plugins/jquery-ui/jquery-ui.min',
+            'plugins/bootstrap/js/bootstrap.bundle.min',
+            'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min',
+            'dist/js/adminlte',
         );
 
-        $data['header'] = view('layout/header', $dth);
-        $data['footer'] = view('layout/footer', $dtf);
+        $resource->addCss($css);
+        $resource->addJs($js);
 
-        return view('home/index', $data);
+        $data['css'] = $resource->getCss();
+        $data['js'] = $resource->getJs();
+
+        $data['header'] = view('layout/header', $data);
+        $data['footer'] = view('layout/footer', $data);
+
+        return view('inicio/index', $data);
     }
 }

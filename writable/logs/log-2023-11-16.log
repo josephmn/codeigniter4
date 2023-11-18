@@ -1,0 +1,5 @@
+INFO - 2023-11-16 01:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-11-16 23:55:32 --> SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://localhost:60714/wsNetprodex.asmx?WSDL' : failed to load external entity "http://localhost:60714/wsNetprodex.asmx?WSDL"
+
+in APPPATH\Controllers\login.php on line 118.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
