@@ -11,6 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+  --color-datatable: #6C757D;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -5139,8 +5140,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: var(--color-datatable);
+  border-color: var(--color-datatable);
 }
 
 .page-item.disabled .page-link {

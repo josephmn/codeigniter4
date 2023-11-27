@@ -17,7 +17,10 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
+    <!-- JavaScript  -->
+    <script>
+        const baseurl = '<?php echo base_url() ?>';
+    </script>
     <!-- Aquí cargas tus archivos JS comunes -->
     <?php foreach ($js as $jsFile): ?>
         <script src="<?= $jsFile; ?>"></script>

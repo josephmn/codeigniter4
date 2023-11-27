@@ -20,7 +20,7 @@
 
     <div class="login-box">
         <!-- /.login-logo -->
-        <div class="card card-outline card-success">
+        <div class="card card-outline card-secondary">
             <div class="card-header text-center">
                 <a href="<?= base_url() ?>" class="h1"><b>Netprodex</b></a>
             </div>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-success btn-block">Ingresar <i class="fas fa-angle-double-right fa-beat"></i></button>
+                            <button type="submit" class="btn btn-secondary btn-block">Ingresar <i class="ml-1 fas fa-sign-in-alt"></i></button>
                         </div>
                         <!-- /.col -->
                     </div>

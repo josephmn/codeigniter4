@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Libraries\Resource;
+use App\Libraries\Webservices;
+use App\Libraries\Menu;
 
 class Login extends BaseController
 {
@@ -94,21 +96,13 @@ class Login extends BaseController
 
     public function login() {
         
+        $servicio = new Webservices();
+
         $usuario = $this->request->getPost('usuario');
         $password = $this->request->getPost('password');
 
-		$wsdl = 'http://localhost:60714/wsNetprodex.asmx?WSDL';
-
-		$options = array(
-			"uri"=> $wsdl,
-			"style"=> SOAP_RPC,
-			"use"=> SOAP_ENCODED,
-			"soap_version"=> SOAP_1_1,
-			"connection_timeout"=> 60,
-			"trace"=> false,
-			"encoding"=> "UTF-8",
-			"exceptions"=> false,
-			);
+		$wsdl = $servicio->getWS();
+        $options = $servicio->getOptions();
 		
 		$param = array(
 			"usuario"=>$usuario,
@@ -116,23 +110,40 @@ class Login extends BaseController
 		);
 
         $soap = new \SoapClient($wsdl, $options);
-        $result = $soap->Login($param);
-
-        $data = json_decode($result->LoginResult,true);
-
+        
+        // Para obtener datos del login
+        $result_login = $soap->Login($param);
+        $data_login = json_decode($result_login->LoginResult,true);
+        
         // echo '<pre>';
         // print_r($data['Resultado'][0]['dt_usuario']);
         // print_r($data['Resultado'][0]['dt_perfil']);
         // echo '</pre>';
         // exit;
-
-        if (!empty($data) || count($data) > 0) {
+        
+        if (!empty($data_login) || count($data_login) > 0) {
             
             $session = session();
             // Establecer el valor en la sesión
-            $session->set('Resultado', $data['Resultado'][0]);
-            $session->set('dt_usuario', $data['Resultado'][0]['dt_usuario'][0]);
-            $session->set('dt_perfil', $data['Resultado'][0]['dt_perfil'][0]);
+            $session->set('Resultado', $data_login['Resultado'][0]);
+            $session->set('dt_usuario', $data_login['Resultado'][0]['dt_usuario'][0]);
+            $session->set('dt_perfil', $data_login['Resultado'][0]['dt_perfil'][0]);
+            
+            $perfil = $data_login['Resultado'][0]['dt_perfil'][0]['i_id'];
+            // Para obtener el listado de menú
+            $prm_perfil = array(
+                "post" => 0, // 0 -> Lista de menu login, 1 -> Listado de menu por perfil
+                "perfil"=> $perfil,
+            );
+
+            $result_menu = $soap->Menu($prm_perfil);
+            $data_menu = json_decode($result_menu->MenuResult,true);
+            
+            $ls_menu = $data_menu['Resultado'];
+            $session->set('list_menu', $data_menu['Resultado']);
+            
+            $menu = new Menu();
+            $menu->postMenu($ls_menu, "inicio");
 
             return redirect()->to(base_url('/inicio'));
         } else {

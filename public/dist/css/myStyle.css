@@ -1,0 +1,21 @@
+/* button .cerrar {
+    background-color: #343a40 !important;
+    margin: 0px !important;
+    padding: 0px 9px 2px 9px !important;
+    border: solid 1px #000 !important;
+    border-radius: 6px !important;
+    color: white !important;
+} */
+
+.icon-color{
+    color: #dc3545;
+}
+
+.modal-dialog .overlay{
+    color: #b8b8b8 !important;
+}
+
+tr.group, tr.group:hover {
+    background-color: #b8b8b8 !important;
+    font-weight: bold;
+}
