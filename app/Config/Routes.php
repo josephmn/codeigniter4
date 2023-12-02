@@ -24,5 +24,8 @@ $routes->get('/conperfiles', 'configuracion::conperfiles');
 $routes->post('/configuracion/mantperfil', 'configuracion::mantperfil');
 $routes->get('/configuracion/getperfil', 'configuracion::getperfil');
 $routes->get('/accesos', 'configuracion::accesos');
+$routes->get('/configuracion/getmenu', 'configuracion::getmenu');
+$routes->get('/configuracion/getsubmenu', 'configuracion::getsubmenu');
+$routes->post('/configuracion/mantaccesos', 'configuracion::mantaccesos');
 
 $routes->get('/conusuarios', 'configuracion::conusuarios');

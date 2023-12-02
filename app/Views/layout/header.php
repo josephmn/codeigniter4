@@ -87,7 +87,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0"><?= isset($pageTitle) ? $pageTitle : 'Document' ?></h1>
+                            <?= isset($pageTitle) ? $pageTitle : 'Document' ?>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

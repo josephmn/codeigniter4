@@ -16,7 +16,7 @@ class inicio extends BaseController
         // dtf -> data footer
 
         // Agregar Título a la Vista
-        $data['pageTitle'] = 'Inicio';
+        $data['pageTitle'] = "<h1 class'm-0'>Inicio</h1>";
         
         // Agregar archivos CSS
         $css = array(

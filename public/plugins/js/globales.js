@@ -1,30 +1,38 @@
 // validación para Input
 function validarInput(inputValue) {
     if (inputValue === null || inputValue.trim() === '') {
-        return false;
-    } else {
         return true;
+    } else {
+        return false;
     }
 }
 
-function overlayadd(valor){
+// validación para select
+function validarSelect(inputValue) {
+    if (inputValue === null || inputValue === 0) {
+        return true;
+    }
+    return false;
+}
+
+function overlayadd(valor) {
     let overlay = "\
     <div id='overlay' class='overlay'><i class='fas fa-3x fa-sync-alt fa-spin'></i>\
         <div class='text-bold pt-2'>Cargando...</div>\
     </div>";
-    $input = "#"+valor;
+    $input = "#" + valor;
     $($input).html("");
     $($input).html(overlay);
 }
 
-function overlayclose(valor){
-    $input = "#"+valor;
+function overlayclose(valor) {
+    $input = "#" + valor;
     $($input).html("");
     $($input).html(overlay);
 }
 
 // creacion de datatble
-function creardatatable(nombretabla, orden) {
+function creardatatable(nombretabla, orden, filtro) {
     var tabla = $(nombretabla).dataTable({
         lengthChange: true,
         responsive: true,
@@ -56,7 +64,7 @@ function creardatatable(nombretabla, orden) {
             },
         },
         order: [[orden, "asc"]],
-        lengthMenu: [[5, 10, 50, 100, -1], ["5 filas", "10 filas", "50 filas", "100 filas", "Todos"]],
+        lengthMenu: filtro,
     });
     return tabla;
 }

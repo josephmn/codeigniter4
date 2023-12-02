@@ -11,6 +11,7 @@
                             <i class="fas fa-user-plus mr-2"></i>AGREGAR ACCESOS
                         </button>
                     </div>
+                    <input id="perfil" type="hidden" value="<?php echo $this->data['perfil']; ?>" readonly>
                 </div>
             </div>
         </div>
@@ -65,10 +66,41 @@
     </div>
 </div>
 
-<?php 
-    // echo '<pre>';
-    // print_r($this->data['param']);
-    // echo '</pre>';
-?>
+<!-- MODAL AGREGAR ACCESOS-->
+<div class="modal fade" id="modal-agregar" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold"><i class="fa-solid fa-user-plus mr-2"></i>CREAR PERFIL</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-square-xmark icon-color"></i>
+                </button>
+            </div>
+            <div id="overlay"></div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="form-label font-weight-bolder">Menu:</label>
+                        <select id="menu" tabindex="1" class="select2 form-control">
+                            <option selected='selected' disabled='disabled' value='0'>-- SELECCIONAR --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="form-label font-weight-bolder">SubMenu:</label>
+                        <select id="submenu" tabindex="2" class="select2 form-control">
+                            <option selected='selected' disabled='disabled' value='0'>-- SELECCIONAR --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnguardar" type="button" class="btn btn-success col-md-4"><i
+                        class="fas fa-save mr-2"></i>Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?= $footer ?>

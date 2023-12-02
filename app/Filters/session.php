@@ -11,7 +11,7 @@ class session implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         // Do something here
-        if (session('Resultado') == '') {
+        if (session('dt_usuario') == null) {
             return redirect()->to(base_url('/'));
         }
     }

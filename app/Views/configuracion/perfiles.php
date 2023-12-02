@@ -22,14 +22,7 @@
                         <table id="example1" class="table cell-border compact hover">
                             <!-- class="table table-bordered compact" display -->
                             <thead>
-                                <tr>
-                                    <th class="text-center"># Código</th>
-                                    <th class="text-center">Nombre</th>
-                                    <th class="text-center">Estado</th>
-                                    <th class="text-center">#</th>
-                                    <th class="text-center">#</th>
-                                    <th class="text-center">#</th>
-                                </tr>
+                                <?php echo $this->data['headperfiles'];?>
                             </thead>
                             <tbody>
                                 <?php echo $this->data['bodyperfiles'];?>

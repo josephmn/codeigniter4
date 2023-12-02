@@ -32,6 +32,32 @@ class Resource
 		}
     }
 
+    public function resource_default()
+    {
+        $css = array(
+            'plugins/fontawesome-free/css/all.min',
+            'dist/css/adminlte.min',
+            'plugins/overlayScrollbars/css/OverlayScrollbars.min',
+        );
+
+        $js = array(
+            'plugins/fontawesome-free/js/all.min',
+            'plugins/jquery/jquery.min',
+            'plugins/jquery-ui/jquery-ui.min',
+            'plugins/bootstrap/js/bootstrap.bundle.min',
+            'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min',
+            'dist/js/adminlte',
+        );
+
+        $this->addCss($css);
+        $this->addJs($js);
+
+        $data['css'] = $this->getCss($css);
+        $data['js'] = $this->getJs($js);
+
+        return $data;
+    }
+
     public function getCss()
     {
         return $this->css;

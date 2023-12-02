@@ -13,7 +13,7 @@ class perfil extends BaseController
         $menu = new Menu();
         $menu->postMenu(session('list_menu'), "perfil");
 
-        $data['pageTitle'] = 'Perfil';
+        $data['pageTitle'] = "<h1 class'm-0'>Perfil</h1>";
         
         $css = array(
             'plugins/fontawesome-free/css/all.min',
