@@ -63,7 +63,7 @@
     </div>
 </div>
 
-<!-- MODAL EDITAR DATO-->
+<!-- MODAL EDITAR PERFIL-->
 <div class="modal fade" id="modal-editar" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -88,11 +88,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-6">
                         <label class="form-label font-weight-bolder">Estado:</label>
                         <select id="estadox" tabindex="2" class="form-control form-control-md">
                             <option value="1">Activo</option>
                             <option value="0">Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-label font-weight-bolder">Predeterminado:</label>
+                        <select id="defaultx" tabindex="3" class="form-control form-control-md">
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
                         </select>
                     </div>
                 </div>

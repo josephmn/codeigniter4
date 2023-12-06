@@ -99,7 +99,7 @@ class configuracion extends BaseController
             $ls_perfiles = $data_perfiles['Resultado'];
             
             $head = "";
-            $cb = array("# Código", "Nombre", "Estado", "Fecha Registro", ".#", "..#", "...#");
+            $cb = array("# Código", "Nombre", "Estado", "Access Default", "Fecha Registro", ".#", "..#", "...#");
             $head.="<tr>";
             foreach ($cb as $c) {
                 $head.="<th class='text-center'>". $c ."</th>";
@@ -118,6 +118,7 @@ class configuracion extends BaseController
                     <td class='text-center'>". $dt['i_id'] ."</td>
                     <td class='text-left'>". $dt['v_perfil'] ."</td>
                     <td class='text-center'><span class='badge bg-". $dt['v_color'] ."'>". $dt['v_estado'] ."</span></td>
+                    <td class='text-center'><span class='badge bg-warning'>". $dt['v_default'] ."</span></td>
                     <td class='text-center'>". $nuevoFormato ."</td>
                     <td class='text-center'>
                         <a id=". $dt['i_id'] ." class='btn btn-warning btn-sm editar'>
@@ -242,6 +243,7 @@ class configuracion extends BaseController
             $codigo = $datos->codigo;
             $nombre = $datos->nombre;
             $estado = $datos->estado;
+            $defaultx = $datos->defaultx;
             $usuario = $user['v_dni'];
 
             // consulta al servicio web
@@ -254,6 +256,7 @@ class configuracion extends BaseController
 				'codigo' => $codigo,
                 'nombre' => $nombre,
                 'estado' => $estado,
+                'defaultx' => $defaultx,
                 'usuario' => $usuario,
 			);
 
@@ -287,7 +290,9 @@ class configuracion extends BaseController
             $menu = new Menu();
             $menu->postMenu(session('list_menu'), "configuracion", "conperfiles");
 
-            $data['pageTitle'] = "<h1 class'm-0'>Administración de Perfiles | <b>" . $nombre . "</b> (<b>" . $perfil . "</b>)</h1>";
+            $backpage = "<a href='". base_url('/conperfiles') ."'><i class='fas fa-chevron-circle-left mr-2 return-button'></i></a>";
+
+            $data['pageTitle'] = "<h1 class'm-0'>". $backpage ."Administración de Perfiles | <b>" . $nombre . "</b> (<b>" . $perfil . "</b>)</h1>";
 
             $css = array(
                 'plugins/fontawesome-free/css/all.min',
@@ -466,7 +471,7 @@ class configuracion extends BaseController
             $data = "";
             $data.="<option selected='selected' disabled='disabled' value='0'>-- SELECCIONAR --</option>";
             foreach ($_registros as $reg) {
-                $data.="<option value='".$reg['i_id']."'>".$reg['v_menu']."</option>";
+                $data.="<option value='". $reg['i_id'] ."'>". $reg['v_menu'] ."</option>";
             }
 
             $combo = array(

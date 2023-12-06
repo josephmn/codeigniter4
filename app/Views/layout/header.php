@@ -54,6 +54,7 @@
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><b><?php echo $user['v_nombres'];?></b></a>
+                        <a><span class="badge badge-secondary right"><b><?php echo $perfil['v_perfil'] ?></b></span></a>
                     </div>
                 </div>
 

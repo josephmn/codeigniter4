@@ -136,6 +136,7 @@ $(function () {
                 $("#codigox").val(res.i_id);
                 $("#nombrex").val(res.v_perfil);
                 $("#estadox").val(res.i_estado);
+                $("#defaultx").val(res.i_default);
                 overlayclose("overlay");
             },
         });
@@ -146,7 +147,8 @@ $(function () {
         let post = 2; //actualizar
         let codigo = $("#codigox").val(); //codigo del perfil
         let nombre = $("#nombrex").val(); //nombre del perfil
-        let estado = $("#estadox").val();; //activo
+        let estado = $("#estadox").val(); //activo
+        let defaultx = $("#defaultx").val(); //activo
 
         if (validarInput(nombre)) {
             Toast.fire({
@@ -175,6 +177,7 @@ $(function () {
                     codigo: codigo,
                     nombre: nombre,
                     estado: estado,
+                    defaultx: defaultx,
                 };
 
                 $.ajax({
@@ -235,12 +238,14 @@ $(function () {
         let codigo = partes[0];
         let nombre = "";
         let estado = 0;
+        let defaultx = 0;
 
         let datos = {
             post: post,
             codigo: codigo,
             nombre: nombre,
             estado: estado,
+            defaultx: defaultx,
         };
 
         Swal.fire({

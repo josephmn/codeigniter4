@@ -20,19 +20,20 @@ class Login extends BaseController
         $resource = new Resource();
         // Agregar archivos CSS
         $css = array(
-            'plugins/fontawesome-free/css/all.min.css',
-            'dist/css/adminlte.min.css',
-            'plugins/overlayScrollbars/css/OverlayScrollbars.min.css',
+            'plugins/fontawesome-free/css/all.min',
+            'dist/css/adminlte.min',
+            'plugins/overlayScrollbars/css/OverlayScrollbars.min',
+            'dist/css/myStyle',
         );
         
         // Agregar archivos JS
         $js = array(
-            'plugins/fontawesome-free/js/all.min.js',
-            'plugins/jquery/jquery.min.js',
-            'plugins/jquery-ui/jquery-ui.min.js',
-            'plugins/bootstrap/js/bootstrap.bundle.min.js',
-            'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
-            'dist/js/adminlte.js',
+            'plugins/fontawesome-free/js/all.min',
+            'plugins/jquery/jquery.min',
+            'plugins/jquery-ui/jquery-ui.min',
+            'plugins/bootstrap/js/bootstrap.bundle.min',
+            'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min',
+            'dist/js/adminlte',
         );
 
         $resource->addCss($css);
@@ -40,6 +41,31 @@ class Login extends BaseController
         
         $data['css'] = $resource->getCss();
         $data['js'] = $resource->getJs();
+
+        // consulta al servicio web
+        $servicio = new Webservices();
+        $wsdl = $servicio->getWS();
+        $options = $servicio->getOptions();
+
+        $param = array(
+            'post' => 0, // 0 -> Lista de Tipo Documentos
+            'codigo' => '',
+        );
+
+        $soap = new \SoapClient($wsdl, $options);
+
+        $_result = $soap->TipoDocumento_listar($param);
+        $_response = json_decode($_result->TipoDocumento_listarResult,true);
+        
+        $_registros = $_response['Resultado'];
+
+        $combo = "";
+        foreach ($_registros as $reg) {
+            $defaultx = ($reg['i_default'] == 1) ? 'selected' : '';
+            $combo.="<option value='". $reg['i_id'] ."' ". $defaultx .">". $reg['v_documento'] ."</option>";
+        };
+
+        $data['combo'] = $combo;
 
         return view('index/registrar', $data);
     }
@@ -49,19 +75,19 @@ class Login extends BaseController
         $resource = new Resource();
         // Agregar archivos CSS
         $css = array(
-            'plugins/fontawesome-free/css/all.min.css',
-            'dist/css/adminlte.min.css',
-            'plugins/overlayScrollbars/css/OverlayScrollbars.min.css',
+            'plugins/fontawesome-free/css/all.min',
+            'dist/css/adminlte.min',
+            'plugins/overlayScrollbars/css/OverlayScrollbars.min',
         );
         
         // Agregar archivos JS
         $js = array(
-            'plugins/fontawesome-free/js/all.min.js',
-            'plugins/jquery/jquery.min.js',
-            'plugins/jquery-ui/jquery-ui.min.js',
-            'plugins/bootstrap/js/bootstrap.bundle.min.js',
-            'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
-            'dist/js/adminlte.js',
+            'plugins/fontawesome-free/js/all.min',
+            'plugins/jquery/jquery.min',
+            'plugins/jquery-ui/jquery-ui.min',
+            'plugins/bootstrap/js/bootstrap.bundle.min',
+            'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min',
+            'dist/js/adminlte',
         );
 
         $resource->addCss($css);
