@@ -19,6 +19,7 @@ $(function () {
         let codigo = ""; //codigo del perfil
         let nombre = $("#nombre").val(); //nombre del perfil
         let estado = 0; //activo
+        let defaultx = 0; //
 
         if (validarInput(nombre)) {
             Toast.fire({
@@ -35,6 +36,7 @@ $(function () {
             codigo: codigo,
             nombre: nombre,
             estado: estado,
+            defaultx: defaultx,
         };
 
         Swal.fire({

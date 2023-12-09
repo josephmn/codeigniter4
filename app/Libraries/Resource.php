@@ -38,6 +38,7 @@ class Resource
             'plugins/fontawesome-free/css/all.min',
             'dist/css/adminlte.min',
             'plugins/overlayScrollbars/css/OverlayScrollbars.min',
+            'dist/css/inicio',
         );
 
         $js = array(

@@ -7,7 +7,8 @@
     <title><?= $_SERVER['NAME_APLICATION'];?></title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <!-- Aquí cargas tus archivos CSS comunes -->
     <?php foreach ($css as $cssFile): ?>
@@ -22,7 +23,12 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-secondary">
             <div class="card-header text-center">
-                <a href="<?= base_url() ?>" class="h1"><b>Netprodex</b></a>
+                <!-- <a href="<?php //base_url() ?>" class="h1"><b>Netprodex</b></a> -->
+                <div class="contenedor-imagen">
+                    <a href="<?= base_url() ?>">
+                        <img src="<?= base_url() ?>dist/img/netprodex_texto.png" alt="logo_texto">
+                    </a>
+                </div>
             </div>
             <div class="card-body">
                 <form action="<?= base_url("/login"); ?>" method="POST">
@@ -44,7 +50,8 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-secondary btn-block">Ingresar <i class="ml-1 fas fa-sign-in-alt"></i></button>
+                            <button type="submit" class="btn btn-secondary btn-block">Ingresar <i
+                                    class="ml-1 fas fa-sign-in-alt"></i></button>
                         </div>
                         <!-- /.col -->
                     </div>

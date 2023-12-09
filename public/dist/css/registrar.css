@@ -1,0 +1,29 @@
+.login-box, .register-box {
+    width: 800px !important;
+}
+
+.contenedor-imagen {
+    text-align: center !important;
+}
+
+.contenedor-imagen img {
+    display: inline-block !important;
+    width: 300px !important;
+    height: 70px !important;
+}
+
+.icon-color{
+    color: #dc3545;
+}
+
+.modal-dialog .overlay{
+    color: #b8b8b8 !important;
+}
+
+a .return-button {
+    color: #000000 !important;
+}
+
+a .return-button:hover {
+    color: #6c757d !important;
+}

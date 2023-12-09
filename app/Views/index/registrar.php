@@ -20,25 +20,29 @@
 <body class="hold-transition register-page">
 
     <div class="register-box">
-        <div class="card card-outline card-success">
+        <div class="card card-outline card-secondary">
             <div class="card-header text-center">
-                <a href="<?= base_url() ?>" class="h1"><b>Netprodex</b></a>
+                <!-- <a href="<?php //base_url() ?>" class="h1"><b>Netprodex</b></a> -->
+                <div class="contenedor-imagen">
+                    <a href="<?= base_url() ?>">
+                        <img src="<?= base_url() ?>/dist/img/netprodex_texto.png" width="300" height="70" alt="logo_texto">
+                    </a>
+                </div>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Por favor ingrese sus datos</p>
+                <p class="login-box-msg">Por favor ingrese sus datos correspondientes en casa casilla para luego registrarse en el sistema</p>
 
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-6">
                             <label class="form-label font-weight-bolder">Tipo de documento:</label>
                             <div class="input-group mb-3">
-                                <select id="estadox" tabindex="2" class="form-control form-control-md">
+                                <select id="tdocumento" tabindex="1" class="form-control form-control-md" onchange="actualizarLongitudMaxima()">
                                     <?php echo $this->data['combo'];?>
                                 </select>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Número de documento"
-                                    autocomplete="off">
+                                <input id="documento" name="documento" tabindex="2" type="text" class="form-control" placeholder="Número de documento" autocomplete="off">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-id-card"></span>
@@ -46,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Nombres" autocomplete="off">
+                                <input type="text" name="nombres" tabindex="3" class="form-control" placeholder="Nombres" autocomplete="off">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-user"></span>
@@ -54,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Apellidos" autocomplete="off">
+                                <input type="text" name="apellidos" tabindex="4" class="form-control" placeholder="Apellidos" autocomplete="off">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-user"></span>
@@ -65,7 +69,7 @@
                         <div class="col-6">
                             <label class="form-label font-weight-bolder">Correo electrónico:</label>
                             <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Correo" autocomplete="off">
+                                <input type="email" name="correo" tabindex="5" class="form-control" placeholder="Correo" autocomplete="off">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-envelope"></span>
@@ -73,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" class="form-control" placeholder="Password" autocomplete="off">
+                                <input type="password" name="password1" tabindex="6" class="form-control" placeholder="Password" autocomplete="off">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-lock"></span>
@@ -81,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" class="form-control" placeholder="Repite password"
+                                <input type="password" name="password2" tabindex="7" class="form-control" placeholder="Repite password"
                                     autocomplete="off">
                                 <div class="input-group-append">
                                     <div class="input-group-text">

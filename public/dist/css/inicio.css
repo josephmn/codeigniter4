@@ -1,0 +1,35 @@
+.contenedor-imagen {
+    text-align: center !important;
+}
+
+.contenedor-imagen img {
+    max-width: 100% !important;
+    height: auto;
+}
+
+.icon-color{
+    color: #dc3545;
+}
+
+.modal-dialog .overlay{
+    color: #b8b8b8 !important;
+}
+
+tr.group, tr.group:hover {
+    background-color: #b8b8b8 !important;
+    font-weight: bold;
+}
+
+a .return-button {
+    color: #000000 !important;
+}
+
+a .return-button:hover {
+    color: #6c757d !important;
+}
+
+@media (max-width: 600px) {
+    .contenedor-imagen img {
+        max-width: 80%;
+    }
+}

@@ -23,7 +23,7 @@ class Login extends BaseController
             'plugins/fontawesome-free/css/all.min',
             'dist/css/adminlte.min',
             'plugins/overlayScrollbars/css/OverlayScrollbars.min',
-            'dist/css/myStyle',
+            'dist/css/registrar',
         );
         
         // Agregar archivos JS
@@ -34,6 +34,7 @@ class Login extends BaseController
             'plugins/bootstrap/js/bootstrap.bundle.min',
             'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min',
             'dist/js/adminlte',
+            'plugins/js/index/registrar',
         );
 
         $resource->addCss($css);
