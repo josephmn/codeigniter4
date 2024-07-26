@@ -21,7 +21,7 @@ $(function () {
         theme: 'bootstrap4',
     });
 
-    $("#btnperfil").on("click", function () {
+    $("#btnacceso").on("click", function () {
         let perfil = $("#perfil").val();
         combomenu(perfil);
     });
@@ -299,6 +299,8 @@ $("#menu").change(function () {
 
 // crear combo menu
 function combomenu(idperfil) {
+    $("#submenu").html("");
+    $("#submenu").append("<option selected='selected' disabled='disabled' value='0'>-- SELECCIONAR --</option>");
     let datos = {
         perfil: idperfil,
     };

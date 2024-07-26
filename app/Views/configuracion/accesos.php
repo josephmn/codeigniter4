@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                        <button id="btnperfil" type="button" class="btn btn-success btn-block font-weight-bolder"
+                        <button id="btnacceso" type="button" class="btn btn-success btn-block font-weight-bolder"
                             style="color: White;">
                             <i class="fas fa-user-plus mr-2"></i>AGREGAR ACCESOS
                         </button>
@@ -71,7 +71,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title font-weight-bold"><i class="fa-solid fa-user-plus mr-2"></i>CREAR PERFIL</h5>
+                <h5 class="modal-title font-weight-bold"><i class="fa-solid fa-user-plus mr-2"></i>AGREGAR ACCESOS</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fa-solid fa-square-xmark icon-color"></i>
                 </button>
@@ -96,8 +96,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="btnguardar" type="button" class="btn btn-success col-md-4"><i
-                        class="fas fa-save mr-2"></i>Guardar</button>
+                <button id="btnguardar" type="button" class="btn btn-success col-md-4">
+                    <i class="fas fa-save mr-2"></i>Guardar
+                </button>
             </div>
         </div>
     </div>
